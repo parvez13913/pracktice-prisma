@@ -9,9 +9,9 @@ async function main() {
   //     data: {
   //       name: "Abir Hassan",
   //       email: "abir14016@gmail.com",
+  //       age: 27,
   //     },
   //   });
-
   //   console.log(postUser);
 }
 
