@@ -32,7 +32,37 @@ const createOrUpdateProfile = async (req: Request, res: Response) => {
   }
 };
 
+const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    const result = await UserService.getAllUsers();
+    res.send({
+      success: true,
+      message: "Data fatched Succesfully!",
+      statusCode: 200,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+const getSingleUser = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const result = await UserService.getSingleUser(parseInt(id));
+    res.send({
+      success: true,
+      message: "Data fatched Succesfully!",
+      statusCode: 200,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const UserController = {
   createUser,
   createOrUpdateProfile,
+  getAllUsers,
+  getSingleUser,
 };
