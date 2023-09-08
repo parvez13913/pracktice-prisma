@@ -42,7 +42,7 @@ const getAllUsers = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 };
 const getSingleUser = async (req: Request, res: Response) => {
@@ -56,7 +56,7 @@ const getSingleUser = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 };
 
