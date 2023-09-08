@@ -16,6 +16,23 @@ const createUser = async (req: Request, res: Response) => {
   }
 };
 
+const createOrUpdateProfile = async (req: Request, res: Response) => {
+  try {
+    const data = req.body;
+
+    const result = await UserService.createOrUpdateProfile(data);
+    res.send({
+      success: true,
+      message: "Profile Created/Updated Succesfully!",
+      statusCode: 200,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const UserController = {
   createUser,
+  createOrUpdateProfile,
 };
