@@ -19,7 +19,8 @@ const createPost = async (req: Request, res: Response) => {
 
 const getAllPosts = async (req: Request, res: Response) => {
   try {
-    const result = await PostService.getAllPosts();
+    const options = req.query;
+    const result = await PostService.getAllPosts(options);
 
     res.send({
       success: true,
