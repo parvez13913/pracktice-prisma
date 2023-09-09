@@ -26,7 +26,8 @@ const getAllPosts = async (req: Request, res: Response) => {
       success: true,
       statusCode: 200,
       message: "Post fetched Successfully!",
-      data: result,
+      total: result.total,
+      data: result.data,
     });
   } catch (error) {
     res.send(error);
