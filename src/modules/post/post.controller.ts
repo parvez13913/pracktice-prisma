@@ -33,6 +33,7 @@ const getAllPosts = async (req: Request, res: Response) => {
     res.send(error);
   }
 };
+
 const getSinglePost = async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -49,8 +50,26 @@ const getSinglePost = async (req: Request, res: Response) => {
   }
 };
 
+const updatePost = async (req: Request, res: Response) => {
+  try {
+    const id = parseInt(req.params.id);
+    const data = req.body;
+    const result = await PostService.updatePost(id, data);
+
+    res.send({
+      success: true,
+      statusCode: 200,
+      message: "Post updated Successfully!",
+      data: result,
+    });
+  } catch (error) {
+    res.send(error);
+  }
+};
+
 export const PostController = {
   createPost,
   getAllPosts,
   getSinglePost,
+  updatePost,
 };
